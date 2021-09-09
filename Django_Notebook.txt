@@ -96,3 +96,26 @@ NB: This will create another static folder in the root directory with admin fold
 <script src="{% static 'js/script.js' %}"   -----------></script>
 <link href="{% static 'css/style.css' %}"   -------------------/>
 
+#-----------------BLOCK CONTENT, EXTEND, LOAD STATIC--------------------#
+>>home.html file
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% block content %}
+        ---contents to create block---
+    {% endblock }
+
+>>base.html file
+    {% include 'includes/navbar.html' %}
+
+    {% block content %}
+        --contents to be loaded here--
+    {% endblock %}
+
+    {% include 'includes/footer.html' %}
+
+>>Common File Section Include
+    {% include 'includes/navbar.html' %}
+    {% include 'includes/footer.html' %}
+
+#-------------------------MODEL CREATION-----------------------------#
