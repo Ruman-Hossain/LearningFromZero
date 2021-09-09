@@ -23,3 +23,76 @@ $django-admin startproject greatkart .     // dot used for current Directory
 
 Run Django Project Server 
 $python manage.py runserver
+
+#------------------DJANGO DIRECTORY STRUCTURE-------------------#
+GreatKart ------------> root Folder/Project
+    -env--------------> Virtual Environment/packages
+    -greatkart--------> Project Level/Root Apps
+        --static------> template css,js,images,fonts
+        --asgi.py-----> async Python web servers and applications
+        --settings.py-> Project Settings
+        --urls.py-----> Root Url File
+        --views.py----> Root Views File
+        --wsgi.py-----> Python standard for web servers and applications.
+    -static-----------> Auto Created from CollectStatic
+        --admin------->     ||
+        --css--------->     ||
+        --fonts------->     ||
+        --images------>     ||
+        --js---------->     ||
+    -templates--------> template html files
+    -media------------> Media Files Storage
+    -db.sqlite3-------> Database File
+    -manage.py--------> Commnad Line Utility Interacts With Django Projects
+    -APP-1------------> 1st App
+    --------------------------
+    -APP-N------------> Nth App
+
+#----------------TEMPLATE/View-----------------#
+HTML Tag or Text Render 
+>> return HttpResponse("String or Tag Goes Here")
+
+HTML Template Render 
+>> return render(response,"home.html")
+
+Template Setting (Template Folder Inside Parent Folder)
+>> Settings>TEMPLATES>DIRS
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+For Working CSS, JS, IMAGE, LOGO Have to Create Static Folder (Project Level Folder) and put css,js,fonts,images inside that
+>>GreatKart>greatkart>static
+
+#------------------------Static Folder Setting--------------------------#
+>>Settings.py
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIR = [
+    'greatkart/static',
+]
+
+>>--------------------Static Package Installation Command--------------->> 
+$python manage.py collectstatic
+NB: This will create another static folder in the root directory with admin folder. 
+
+>>-------------------Load Static to use above html files---------------->>
+{% load static %}
+
+>>-------------------Static Files src and href Linking------------------>>
+<link href="{% static 'images/logo.png' %}" -------------------->
+<script src="{% static 'js/script.js' %}"   -----------></script>
+<link href="{% static 'css/style.css' %}"   -------------------/>
+
