@@ -1,0 +1,25 @@
+Virtual Environment Create
+$python -m venv env
+
+Activate Virtual Environment
+$Source env/Scripts/activate
+
+Deactivate Virtual Environment
+$deactivate
+
+Check All Installed Global Packages List (Global)
+NB: If Activating venv it will show the packages installed Inside Venv (Local)
+$pip freeze
+
+Django Install
+$pip install django			//Installs the latest Version
+$pip install django==3.1	//Installs django version 3.1
+
+PIP Upgrade if required 
+$python -m pip install --upgrade pip 
+
+Create Django Project Inside Current Directory
+$django-admin startproject greatkart .     // dot used for current Directory
+
+Run Django Project Server 
+$python manage.py runserver
