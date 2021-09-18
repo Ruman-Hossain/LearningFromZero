@@ -119,3 +119,35 @@ NB: This will create another static folder in the root directory with admin fold
     {% include 'includes/footer.html' %}
 
 #-------------------------MODEL CREATION-----------------------------#
+>>ImageField(upload_to='photos/categories',blank=True)
+Required Package install "Pillow"
+$python -m pip install pillow
+
+>>Model Creation 
+--> makemigrations auto generates migration files containing changes that need to be applied to the database, but doesn’t actually change anyhting in your database.
+$python manage.py makemigrations
+--> migrate will make the actual modifications to your database, based on the migration files.
+$python manage.py migrate
+
+>> Model Structure
+from django.db import models
+
+class Category(models.Model):
+    category_name = models.Charfield(max_length=50,unique=True)
+    slug          = models.TextField(max_length=255,blank=True)
+    description   = models.ImageField(upload_to='photos/categories',blank=True)
+
+    class Meta:
+        verbose_name        = 'category'
+        verbose_name_plural = 'categories'
+
+    def __str__(self):
+        return self.category_name
+
+#NB: Class Meta is used to avoid naming problem(Singular/Plural) of table names in admin panel/Database
+Example : Category which will be written as Categorys (Adding 's' at the end but this is wrong)
+          Hence have to use class Meta (verbose_name and verbose_name_plural)
+          
+#------------------------ADMIN SUPERUSER CREATE------------------------#
+$python manage.py createsuperuser
+
