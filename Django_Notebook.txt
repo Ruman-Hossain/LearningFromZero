@@ -134,8 +134,9 @@ from django.db import models
 
 class Category(models.Model):
     category_name = models.Charfield(max_length=50,unique=True)
-    slug          = models.TextField(max_length=255,blank=True)
-    description   = models.ImageField(upload_to='photos/categories',blank=True)
+    slug          = models.CharField(max_length=100,blank=True)
+    description   = models.TextField(max_length=255)
+    cat_imag      = models.ImageField(upload_to='photos/categories',blank=True)
 
     class Meta:
         verbose_name        = 'category'
@@ -147,7 +148,19 @@ class Category(models.Model):
 #NB: Class Meta is used to avoid naming problem(Singular/Plural) of table names in admin panel/Database
 Example : Category which will be written as Categorys (Adding 's' at the end but this is wrong)
           Hence have to use class Meta (verbose_name and verbose_name_plural)
-          
+
+#------------------------MODEL ADMIN REGISTER -------------------------#
+>>admin.py
+    from category.models import Category
+    from django.contrib import admin
+
+    # Register your models here.
+    admin.site.register(Category)
+
 #------------------------ADMIN SUPERUSER CREATE------------------------#
+>>CMD
 $python manage.py createsuperuser
+
+>>Gitbash CMD
+$winpty python manage.py createsuperuser
 
