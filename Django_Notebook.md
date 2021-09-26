@@ -1,12 +1,15 @@
-Virtual Environment Create
-$python -m venv env
-
-Activate Virtual Environment
-$Source env/Scripts/activate
-
-Deactivate Virtual Environment
-$deactivate
-
+#--------------------Virtual Environment Create----------------#
+```console
+python -m venv env
+```
+#---------------------Activate Virtual Environment-------------#
+```console
+Source env/Scripts/activate
+```
+#----------------------Deactivate Virtual Environment----------#
+```console
+deactivate
+```
 Check All Installed Global Packages List (Global)
 NB: If Activating venv it will show the packages installed Inside Venv (Local)
 $pip freeze
@@ -25,6 +28,7 @@ Run Django Project Server
 $python manage.py runserver
 
 #------------------DJANGO DIRECTORY STRUCTURE-------------------#
+```
 GreatKart ------------> root Folder/Project
     -env--------------> Virtual Environment/packages
     -greatkart--------> Project Level/Root Apps
@@ -47,16 +51,19 @@ GreatKart ------------> root Folder/Project
     -APP-1------------> 1st App
     --------------------------
     -APP-N------------> Nth App
-
+```
 #----------------TEMPLATE/View-----------------#
-HTML Tag or Text Render 
->> return HttpResponse("String or Tag Goes Here")
-
-HTML Template Render 
->> return render(response,"home.html")
-
-Template Setting (Template Folder Inside Parent Folder)
->> Settings>TEMPLATES>DIRS
+###HTML Tag or Text Render### 
+```python
+return HttpResponse("String or Tag Goes Here")
+```
+###HTML Template Render###
+```python
+return render(response,"home.html")
+```
+###Template Setting (Template Folder Inside Parent Folder)###
+```python
+Settings>TEMPLATES>DIRS
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,18 +79,20 @@ TEMPLATES = [
         },
     },
 ]
-
-For Working CSS, JS, IMAGE, LOGO Have to Create Static Folder (Project Level Folder) and put css,js,fonts,images inside that
->>GreatKart>greatkart>static
-
+```
+###For Working CSS, JS, IMAGE, LOGO Have to Create Static Folder (Project Level Folder) and put css,js,fonts,images inside that###
+```python
+GreatKart>greatkart>static
+```
 #------------------------Static Folder Setting--------------------------#
->>Settings.py
+```python
+Settings.py
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIR = [
     'greatkart/static',
 ]
-
+```
 >>--------------------Static Package Installation Command--------------->> 
 $python manage.py collectstatic
 NB: This will create another static folder in the root directory with admin folder. 
