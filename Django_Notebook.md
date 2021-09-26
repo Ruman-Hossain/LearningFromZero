@@ -1,12 +1,12 @@
-#--------------------Virtual Environment Create----------------#
+#Virtual Environment Create
 ```console
 python -m venv env
 ```
-#---------------------Activate Virtual Environment-------------#
+#Activate Virtual Environment
 ```console
 Source env/Scripts/activate
 ```
-#----------------------Deactivate Virtual Environment----------#
+#Deactivate Virtual Environment
 ```console
 deactivate
 ```
@@ -28,7 +28,7 @@ $django-admin startproject greatkart .     // dot used for current Directory
 Run Django Project Server 
 $python manage.py runserver
 
-#------------------DJANGO DIRECTORY STRUCTURE-------------------#
+#DJANGO DIRECTORY STRUCTURE
 ```
 GreatKart ------------> root Folder/Project
     -env--------------> Virtual Environment/packages
@@ -53,16 +53,16 @@ GreatKart ------------> root Folder/Project
     --------------------------
     -APP-N------------> Nth App
 ```
-#----------------TEMPLATE/View-----------------#
-###HTML Tag or Text Render### 
+#TEMPLATE/View
+###HTML Tag or Text Render
 ```python
 return HttpResponse("String or Tag Goes Here")
 ```
-###HTML Template Render###
+###HTML Template Render
 ```python
 return render(response,"home.html")
 ```
-###Template Setting (Template Folder Inside Parent Folder)###
+###Template Setting (Template Folder Inside Parent Folder)
 ```python
 Settings>TEMPLATES>DIRS
 TEMPLATES = [
@@ -81,11 +81,11 @@ TEMPLATES = [
     },
 ]
 ```
-###For Working CSS, JS, IMAGE, LOGO Have to Create Static Folder (Project Level Folder) and put css,js,fonts,images inside that###
+###For Working CSS, JS, IMAGE, LOGO Have to Create Static Folder (Project Level Folder) and put css,js,fonts,images inside that
 ```python
 GreatKart>greatkart>static
 ```
-#------------------------Static Folder Setting--------------------------#
+#Static Folder Setting
 ```python
 Settings.py
 STATIC_URL = '/static/'
