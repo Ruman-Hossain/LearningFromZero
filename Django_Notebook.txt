@@ -164,3 +164,21 @@ $python manage.py createsuperuser
 >>Gitbash CMD
 $winpty python manage.py createsuperuser
 
+#------------------------CATEGORY |ADMIN SLUG AUTO POPULATE -------------------------#
+```python
+from category.models import Category
+from django.contrib import admin
+
+# Register your models here.
+
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields={'slug':('category_name',)}
+    list_display=('category_name','slug')
+
+admin.site.register(Category,CategoryAdmin)
+```
+#------------------------FOREIGN KEY AUTO UPDATE ON DELETE -------------------------#
+
+```python
+category        = models.ForeignKey(Category, on_delete=models.CASCADE)
+```
