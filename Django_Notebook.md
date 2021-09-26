@@ -10,11 +10,12 @@ Source env/Scripts/activate
 ```console
 deactivate
 ```
-Check All Installed Global Packages List (Global)
+*Check All Installed Global Packages List (Global)*
 NB: If Activating venv it will show the packages installed Inside Venv (Local)
-$pip freeze
-
-Django Install
+```console
+pip freeze
+```
+#Django Install#
 $pip install django			//Installs the latest Version
 $pip install django==3.1	//Installs django version 3.1
 
