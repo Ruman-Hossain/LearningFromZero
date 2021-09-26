@@ -10,8 +10,9 @@ Source env/Scripts/activate
 ```console
 deactivate
 ```
-*Check All Installed Global Packages List (Global)*
-NB: If Activating venv it will show the packages installed Inside Venv (Local)
+> Check All Installed Global Packages List (Global)*
+
+> NB: If Activating venv it will show the packages installed Inside Venv (Local)
 ```console
 pip freeze
 ```
@@ -104,7 +105,7 @@ python manage.py collectstatic
 ```
 * NB: This will create another static folder in the root directory with admin folder. *
 
-# Load Static to use above html files
+# [ Load Static ] to use above html files
 ```python
 {% load static %}
 ```
@@ -213,3 +214,4 @@ admin.site.register(Category,CategoryAdmin)
 ```python
 category        = models.ForeignKey(Category, on_delete=models.CASCADE)
 ```
+
