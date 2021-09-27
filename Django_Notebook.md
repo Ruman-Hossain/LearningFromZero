@@ -10,6 +10,10 @@ Source env/Scripts/activate
 ```console
 deactivate
 ```
+# Packages Install From Requirements.txt
+```console
+pip install -r requirements.txt
+```
 > Check All Installed Global Packages List (Global)*
 
 > NB: If Activating venv it will show the packages installed Inside Venv (Local)
